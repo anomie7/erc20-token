@@ -1,6 +1,6 @@
 const Owned = artifacts.require("Owned");
 
-contract("owner", async accounts => {
+contract("owned", async accounts => {
   let owner = accounts[0];
 
   it("should assert true", async () => {
