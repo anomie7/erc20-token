@@ -8,7 +8,8 @@ contract("ERC20", async accounts => {
 
   describe("totalSupply", function() {
     it("return the total tokens", async () => {
-      await erc20.mint(accounts[0], 1000);
+      assert.equal("mainToken", await erc20.name());
+      assert.equal("MK", await erc20.symbol());
       assert.equal(1000, await erc20.totalSupply());
     });
   });
