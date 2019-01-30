@@ -6,9 +6,20 @@ import "./../math/SafeMath.sol";
 contract ERC20 is ERC20Interface {
     using SafeMath for uint256;
 
+    string public symbol;
+    string public  name;
+    uint8 public decimals;
+
     mapping (address => uint256) private _balances;
     mapping (address => mapping(address => uint256)) private _allowed;
     uint256 private _totalSupply;
+    
+    constructor(address _owner, uint8 _decimals) public {
+        decimals = _decimals;
+        _totalSupply = 1000 * (10**uint(decimals));
+        _balances[_owner] = _totalSupply;
+        emit Transfer(address(0), _owner, _totalSupply);
+    }
 
     function totalSupply() external view returns (uint){
         return _totalSupply;
