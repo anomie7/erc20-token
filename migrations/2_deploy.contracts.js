@@ -5,5 +5,5 @@ var ERC20Mock = artifacts.require("./ERC20Mock.sol");
 module.exports = function(deployer) {
   deployer.deploy(Owned);
   deployer.deploy(SafeMathMock);
-  deployer.deploy(ERC20Mock);
+  deployer.deploy(ERC20Mock, 'MK', 'mainToken');
 };
